@@ -6,7 +6,7 @@ namespace EmpWagesCalculation
     {
         static void Main(string[] args)
         {
-            //callling
+            //calling sttic method from main 
             EmployeeWagesProblem.EmployWage();
         }
     }
