@@ -6,7 +6,7 @@ namespace EmpWagesCalculation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To EmpWagesCalculations");
+            EmployeeWagesProblem.EmployWage();
         }
     }
 }
