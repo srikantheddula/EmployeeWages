@@ -6,6 +6,7 @@ namespace EmpWagesCalculation
     {
         static void Main(string[] args)
         {
+            //callling
             EmployeeWagesProblem.EmployWage();
         }
     }
