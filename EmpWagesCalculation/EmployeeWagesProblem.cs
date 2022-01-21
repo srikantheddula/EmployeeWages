@@ -5,7 +5,7 @@ using System.Text;
 namespace EmpWagesCalculation
 {
     /// <summary>
-    ///  //Caluculating Wages assuming 20 Working Days in a Month using forloop
+    ///  //calculating wages till number of total hrs and days is reached in a month
     /// </summary>
     public class EmployeeWagesProblem
     {
@@ -13,17 +13,19 @@ namespace EmpWagesCalculation
         const int IS_PART_TIME = 2;
         const int EMP_RATE_PER_HOUR = 10;
         const int NUM_OF_WORKING_DAYS = 20;
+        const int MAX_HRS_IN_MONTH = 60;
         public static void EmployWage()   //Static method Calculating Empwage 
         {
-           
             int empHrs = 0;
-            int empWage = 0;
             int totalEmpWage = 0;
-
+            int totalEmpHrs = 0;
+            int totalWorkingDays = 0;
             Random randomNumber = new Random();
-            for (int day = 1; day <= NUM_OF_WORKING_DAYS; day++)
+
+            while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)   
             {
                 int checkingNum = randomNumber.Next(0, 3);
+                totalWorkingDays++;
                 switch (checkingNum)
                 {
                     case IS_FULL_TIME:
@@ -41,13 +43,12 @@ namespace EmpWagesCalculation
 
                         break;
                 }
-                empWage = empHrs * EMP_RATE_PER_HOUR;
-                totalEmpWage = totalEmpWage + empWage;
-                Console.WriteLine("daycount:\t" + day + "\nEmp Wage:\t" + empWage);
-                Console.WriteLine("----------------------------------------");
+                totalEmpHrs = totalEmpHrs + empHrs;
+                Console.WriteLine("days: " + totalWorkingDays + "\t Emp hrs " + totalEmpHrs);
             }
+            totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("\n\nTotal Employee wage :\t" + totalEmpWage);
         }
-        }
+    }
 }
  
