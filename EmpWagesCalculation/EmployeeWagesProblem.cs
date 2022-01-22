@@ -5,14 +5,26 @@ using System.Text;
 namespace EmpWagesCalculation
 {
     /// <summary>
-    /// Compute Empwages multiple companies 
+    /// Compute Empwages multiple companies and save by company
     /// </summary>
     public class EmployeeWagesProblem
     {
-        const int IS_FULL_TIME = 1;
+        const int IS_FULL_TIME = 1;   //constants fields
         const int IS_PART_TIME = 2;
-        
-        public static int EmployWage(string company,int empRatePerHour,int numOfWorkingDays,int maxHoursPerMonth)   //static  method with parametersS Calculating Empwage 
+
+        private string company;        //instance global variabls
+        private int empRatePerHour;
+        private int numOfWorkingDays;
+        private int maxHoursPerMonth;
+
+        public EmployeeWagesProblem(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)   //constructor with parameters passing values
+        {
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;                               //assign param values values to global vaiables
+            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxHoursPerMonth = maxHoursPerMonth;
+        }
+        public  void EmployWage()   //instance method 
         {
             //local variables
             int empHrs = 0;
@@ -46,8 +58,7 @@ namespace EmpWagesCalculation
                 Console.WriteLine("days: " + totalWorkingDays + "\t Emp hrs " + empHrs);
             }
             totalEmpWage = totalEmpHrs * empRatePerHour;
-            Console.WriteLine("company:"+company+"\n\nTotal Employee wage :\t" + totalEmpWage);
-            return totalEmpWage;  //return int totalempwage 
+            Console.WriteLine("company:"+company+"\n\nTotal Employee wage :\t" + totalEmpWage);          
         }
     }
 }
