@@ -11,7 +11,7 @@ namespace EmpWagesCalculation
             empWageBuilder.AddCompanyEmpWage("spencer", 20, 30, 100);
             empWageBuilder.AddCompanyEmpWage("TATA", 20, 25, 60);
             empWageBuilder.computeEmpWage();
-            Console.ReadLine();
+            Console.WriteLine("Total Wage for Dmart company :" + empWageBuilder.getTotalWage("Dmart"));
         }
     }
 }
