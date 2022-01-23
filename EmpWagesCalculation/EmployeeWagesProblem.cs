@@ -5,7 +5,7 @@ using System.Text;
 namespace EmpWagesCalculation
 {
     /// <summary>
-    /// List of multiple companies to manage employee Wages
+    /// store the daily wage along with total employee wage
     /// </summary>
     public class EmployeeWagesProblem 
     {
@@ -18,6 +18,9 @@ namespace EmpWagesCalculation
         {
             this.companyEmpWageArray = new CompanyEmpWage[5];
         }
+
+        public int DailyWage { get; private set; }
+
         public void AddCompanyEmpWage(string company, int empRatePerHr, int numOfWorkingDays, int maxHoursPermonth)
         {
             companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHr, numOfWorkingDays, maxHoursPermonth);   
@@ -35,8 +38,8 @@ namespace EmpWagesCalculation
         private int computeEmpWage(CompanyEmpWage companyEmpWage)
         {
             {
-                int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 1;
-                Random randomNumber = new Random();
+                int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 1;DailyWage = 0;
+                 Random randomNumber = new Random();
                 while (totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalWorkingDays <= companyEmpWage. numOfWorkingDays)
                 {
                     int checkingNum = randomNumber.Next(0, 3);
@@ -60,8 +63,11 @@ namespace EmpWagesCalculation
                     }
                     totalEmpHrs = totalEmpHrs + empHrs;
                     Console.WriteLine("days: " + totalWorkingDays + "\t Emp hrs " + empHrs);
-                }             
-               
+                    
+                }
+                DailyWage = empHrs * companyEmpWage.empRatePerHr;
+                int[] total= { DailyWage };          // Creating an arry for to store the Daily employee wage
+                Console.WriteLine("Daily Wage of Employee: {0}", total[0]);
                 return totalEmpHrs * companyEmpWage.empRatePerHr; //return int totalempwage 
             }
         }
