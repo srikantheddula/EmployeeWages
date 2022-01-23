@@ -5,9 +5,9 @@ using System.Text;
 namespace EmpWagesCalculation
 {
     /// <summary>
-    /// empWage calculation using interface approch
+    /// List of multiple companies to manage employee Wages
     /// </summary>
-    public class EmployeeWagesProblem : IComputeEmployeeWages
+    public class EmployeeWagesProblem 
     {
         public const int IS_FULL_TIME = 1;   //constants fields
         public const int IS_PART_TIME = 2;
