@@ -4,7 +4,12 @@ using System.Text;
 
 namespace EmpWagesCalculation
 {
-     class CompanyEmpWage
+    public interface IComputeEmployeeWages
+    {
+        void AddCompanyEmpWage(string company, int empRatePerHr, int numOfWorkingDays, int maxHoursPermonth);
+        void computeEmpWage();
+    }
+    class CompanyEmpWage
     {
         public string company;  //instance variables
         public int empRatePerHr;
